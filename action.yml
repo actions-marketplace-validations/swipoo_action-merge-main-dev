@@ -1,7 +1,8 @@
 name: 'Swipoo Merge Main into Dev Action'
 description: 'Merge production branch into development branch o push to production'
-icon: git-branch
-color: blue
+branding:
+  icon: git-branch
+  color: blue
 inputs:
   prod_branch:
     description: 'Name of production branch'
