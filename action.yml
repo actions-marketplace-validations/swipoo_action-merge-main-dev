@@ -1,0 +1,43 @@
+name: 'Swipoo Merge Main into Dev Action'
+description: 'Merge production branch into development branch o push to production'
+inputs:
+  prod_branch:
+    description: 'Name of production branch'
+    required: true
+    default: 'main'
+  dev_branch:
+    description: 'Name of development branch'
+    required: true
+    default: 'sandbox'
+  owner_username:
+    description: 'Username of the owner (user or org) of the repo'
+    required: true
+    default: 'swipoo'
+  repo_name:
+    description: 'Name of the repository'
+    required: true
+  gh_username:
+    description: 'Username of the GitHub account. Must be authorized to push to the repository'
+    required: true
+  gh_email:
+    description: 'Email of the GitHub account. Must be authorized to push to the repository'
+    required: true
+  gh_token:
+    description: 'Personal access token of the GitHub account. Must be authorized to push to the repository'
+    required: true
+  gh_actor:
+    description: 'Actor of the GitHub account. Must be authorized to push to the repository'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.gh_actor }}
+    - ${{ inputs.gh_token }}
+    - ${{ inputs.owner_username }}
+    - ${{ inputs.repo_name }}
+    - ${{ inputs.gh_email }}
+    - ${{ inputs.gh_username }}
+    - ${{ inputs.prod_branch }}
+    - ${{ inputs.dev_branch }}
