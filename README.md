@@ -39,14 +39,15 @@ Merge production branch into development branch o push to production.
 ## Example usage
 
 ```yml
-uses: swipoo/actions-merge-main-dev@v1
-with:
-  prod_branch: 'main-branch'
-  dev_branch: 'dev-branch'
-  owner_username: 'swipoo'
-  repo_name: 'my-super-repo'
-  gh_username: 'octocat'
-  gh_email: 'octocat@swipoo.com'
-  gh_token: ${{secrets.GITHUB_TOKEN}}
-  gh_actor: $GITHUB_ACTOR
+- name: Swipoo Merge Main into Dev Action
+  uses: swipoo/action-merge-main-dev@v1
+  with:
+    prod_branch: 'main-branch'
+    dev_branch: 'dev-branch'
+    owner_username: 'swipoo'
+    repo_name: 'my-super-repo'
+    gh_username: 'octocat'
+    gh_email: 'octocat@swipoo.com'
+    gh_token: ${{secrets.GITHUB_TOKEN}}
+    gh_actor: $GITHUB_ACTOR
 ```
